@@ -437,7 +437,7 @@ async def not_afk(event):
             AFKREASON="No reason"
 @client.on(events.NewMessage(outgoing=True, pattern='.runs'))
 async def react(event):        
-    reactor=['Runs to Modi for Help','Runs to Donald Trumpet for help','Runs to Kaala','Runs to Thanos','Runs far, far away from earth','Running faster than usian bolt coz I\'mma Bot','Runs to Marie']
+    reactor=['Running faster than Barry Allen.','Runs far, far away from Earth','Running faster than usian bolt.','Running to Mars.','Exits Milky Way galaxy.']
     index=randint(0,len(reactor)-1)
     reply_text=reactor[index]
     await event.edit(reply_text)
