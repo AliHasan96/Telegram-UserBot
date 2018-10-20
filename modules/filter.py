@@ -23,7 +23,7 @@ async def add_filter(e):
          string=string+" "+str(kek[i])
      cursor.execute('''INSERT INTO FILTER VALUES(?,?,?)''', (int(e.chat_id),kek[1],string))
      db.commit()
-     await e.edit("```Added Filter Successfully```")
+     await e.edit("```Added filter successfully```")
      db.close()
 @bot.on(events.NewMessage(outgoing=True, pattern='.nofilter'))
 @bot.on(events.MessageEdited(outgoing=True, pattern='.nofilter'))
@@ -34,22 +34,21 @@ async def remove_filter(e):
      cursor=db.cursor()
      cursor.execute('''DELETE FROM FILTER WHERE chat_id=? AND filter=?''', (int(e.chat_id),kek[1]))
      db.commit()
-     await e.edit("```Removed Filter Successfully```")
+     await e.edit("```Removed filter successfully```")
      db.close()
 @bot.on(events.NewMessage(outgoing=True, pattern='.rmfilters'))
 @bot.on(events.MessageEdited(outgoing=True, pattern='.rmfilters'))
 async def kick_marie_filter(e):
-    await e.edit("```Will be kicking away all Marie filters.```")
+    await e.edit("```Removing filters.```")
     time.sleep(3)
     r = await e.get_reply_message()
     filters = r.text.split('-')[1:]
     for filter in filters:
         await e.reply('/stop %s' % (filter.strip()))
         await asyncio.sleep(0.3)
-    await e.respond('/filter filters @baalajimaestro kicked them all')
-    await e.respond("```Successfully cleaned Marie filters yaay!```\n Gimme cookies @baalajimaestro")
+    await e.respond("```REEP filters.```")
     if LOGGER:
-          await bot.send_message(LOGGER_GROUP,"I cleaned all Marie filters at "+str(e.chat_id))
+          await bot.send_message(LOGGER_GROUP,"Cleared filters at "+str(e.chat_id))
 @bot.on(events.NewMessage(outgoing=True, pattern='.get filters'))
 @bot.on(events.MessageEdited(outgoing=True, pattern='.get filters'))
 async def filters_active(e):

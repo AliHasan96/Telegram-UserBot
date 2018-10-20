@@ -3,7 +3,7 @@
 async def notes_active(e):
         db=sqlite3.connect("filters.db")
         cursor=db.cursor()
-        transact="Notes active on this chat: \n"
+        transact="Notes: \n"
         cursor.execute('''SELECT * FROM NOTES''')
         all_rows = cursor.fetchall()
         for row in all_rows:
@@ -20,7 +20,7 @@ async def remove_notes(e):
      cursor=db.cursor()
      cursor.execute('''DELETE FROM NOTES WHERE chat_id=? AND note=?''', (int(e.chat_id),kek[1]))
      db.commit()
-     await e.edit("```Removed Note Successfully```")
+     await e.edit("```Removed note successfully```")
      db.close()
 @bot.on(events.NewMessage(outgoing=True, pattern='.save'))
 @bot.on(events.MessageEdited(outgoing=True, pattern='.save'))
@@ -34,7 +34,7 @@ async def add_filter(e):
               string=string+" "+str(kek[i])
      cursor.execute('''INSERT INTO NOTES VALUES(?,?,?)''', (int(e.chat_id),kek[1],string))
      db.commit()
-     await e.edit("```Saved Note Successfully```")
+     await e.edit("```Saved note successfully```")
      db.close()
 @bot.on(events.NewMessage(incoming=True,pattern='#*'))
 async def incom_note(e):
@@ -50,14 +50,13 @@ async def incom_note(e):
 @bot.on(events.NewMessage(outgoing=True, pattern='.rmnotes'))
 @bot.on(events.MessageEdited(outgoing=True, pattern='.rmnotes'))
 async def remove_notes(e):
-        await e.edit("```Will be kicking away all Marie notes.```")
+        await e.edit("```Removing notes.```")
         time.sleep(3)
         r = await e.get_reply_message()
         filters = r.text.split('-')[1:]
         for filter in filters:
             await e.reply('/clear %s' % (filter.strip()))
             await asyncio.sleep(0.3)
-        await e.respond('/save save @baalajimaestro kicked them all')
-        await e.respond("```Successfully cleaned Marie notes yaay!```\n Gimme cookies @baalajimaestro")
+        await e.respond("```REEP notes.```")
         if LOGGER:
-             await bot.send_message(LOGGER_GROUP,"I cleaned all Marie notes at "+str(e.chat_id))
+             await bot.send_message(LOGGER_GROUP,"I cleared all notes at "+str(e.chat_id))

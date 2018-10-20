@@ -15,7 +15,7 @@ async def evaluate(e):
           subprocess.run(['rm', 'sender.txt'], stdout=subprocess.PIPE)
       await e.edit("**Query: **\n`"+e.text[6:]+'`\n**Result: **\n`'+str(evaluation)+'`')
     else:
-      await e.edit("**Query: **\n`"+e.text[6:]+'`\n**Result: **\n`No Result Returned/False`')
+      await e.edit("**Query: **\n`"+e.text[6:]+'`\n**Result: **\n`No result returned/false`')
     if LOGGER:
       await bot.send_message(LOGGER_GROUP,"Eval query "+e.text[6:]+" was executed successfully")
 @bot.on(events.NewMessage(outgoing=True, pattern=r'.exec (.*)'))
@@ -36,7 +36,7 @@ async def run(e):
           subprocess.run(['rm', 'output.txt'], stdout=subprocess.PIPE)
       await e.edit("**Query: **\n`"+e.text[5:]+'`\n**Result: **\n`'+str(result)+'`')
  else:
-  await e.edit("**Query: **\n`"+e.text[5:]+'`\n**Result: **\n`'+'No Result Returned/False'+'`')
+  await e.edit("**Query: **\n`"+e.text[5:]+'`\n**Result: **\n`'+'No result returned/false'+'`')
  if LOGGER:
      await bot.send_message(LOGGER_GROUP,"Exec query "+e.text[5:]+" was executed successfully")
 @bot.on(events.NewMessage(outgoing=True, pattern='.term'))

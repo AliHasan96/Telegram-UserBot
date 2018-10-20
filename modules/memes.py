@@ -136,7 +136,7 @@ async def enable_killme(e):
 @bot.on(events.NewMessage(outgoing=True,pattern='.runs'))
 @bot.on(events.MessageEdited(outgoing=True,pattern='.runs'))
 async def runner_lol(e):
-    reactor=['Runs to Modi for Help','Runs to Donald Trumpet for help','Runs to Kaala','Runs to Thanos','Runs far, far away from earth','Running faster than usian bolt coz I\'mma Bot','Runs to Marie']
+    reactor=['Running faster than Barry Allen.','Runs far, far away from Earth','Running faster than usian bolt.','Running to Mars.','Exits Milky Way galaxy.']
     index=random.randint(0,len(reactor)-1)
     reply_text=reactor[index]
     await e.edit(reply_text)

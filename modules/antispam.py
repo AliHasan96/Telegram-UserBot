@@ -34,7 +34,7 @@ async def common_incoming_handler(e):
                          await bot.send_message(e.chat_id,"`Spammer Nibba was muted.`")
                          return
                          if e.chat_id > 0:
-                             await bot.send_message(e.chat_id,"`Boss! I am not trained to deal with people spamming on PM.\n I request to take action with **Report Spam** button`")
+                             await bot.send_message(e.chat_id,"`I am not trained to deal with people spamming on PM.")
 @bot.on(events.NewMessage(outgoing=True, pattern='.asmoff'))
 @bot.on(events.MessageEdited(outgoing=True, pattern='.asmoff'))
 async def set_asm(e):

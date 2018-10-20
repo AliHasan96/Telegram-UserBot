@@ -15,16 +15,9 @@ async def fastpurger(e):
                  msgs = []
         if msgs:
          await bot.delete_messages(chat, msgs)
-        await bot.send_message(e.chat_id,"`Fast Purge Complete!\n`Purged "+str(count)+" messages. **This auto-generated message shall be self destructed in 2 seconds.**")
+        await bot.send_message(e.chat_id,"`Fast Purge Complete!\n`Purged "+str(count)+" messages.")
         if LOGGER:
             await bot.send_message(LOGGER_GROUP,"Purge of "+str(count)+" messages done successfully.")
-        time.sleep(2)
-        i=1
-        async for message in bot.iter_messages(e.chat_id,from_user='me'):
-             if i>1:
-                 break
-             i=i+1
-             await message.delete()
 @bot.on(events.NewMessage(outgoing=True, pattern='.snipe'))
 @bot.on(events.MessageEdited(outgoing=True, pattern='.snipe'))
 async def snipe_on(e):
@@ -50,16 +43,9 @@ async def purgeme(e):
             break
         i=i+1
         await message.delete()
-    await bot.send_message(e.chat_id,"`Purge Complete!` Purged "+str(count)+" messages. **This auto-generated message shall be self destructed in 2 seconds.**")
+    await bot.send_message(e.chat_id,"`Purge Complete!` Purged "+str(count)+" messages.")
     if LOGGER:
         await bot.send_message(LOGGER_GROUP,"Purge of "+str(count)+" messages done successfully.")
-    time.sleep(2)
-    i=1
-    async for message in bot.iter_messages(e.chat_id,from_user='me'):
-        if i>1:
-            break
-        i=i+1
-        await message.delete()
 @bot.on(events.NewMessage(outgoing=True, pattern='.delmsg'))
 @bot.on(events.MessageEdited(outgoing=True, pattern='.delmsg'))
 async def delmsg(e):
@@ -99,7 +85,7 @@ async def selfdestruct(e):
     message=e.text
     counter=int(message[4:6])
     text=str(e.text[6:])
-    text=text+"`This message shall be self-destructed in "+str(counter)+" seconds`"
+    text=text+"`This message would be self-destructed in "+str(counter)+" seconds`"
     await e.delete()
     await bot.send_message(e.chat_id,text)
     time.sleep(counter)
