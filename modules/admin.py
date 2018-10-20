@@ -19,9 +19,9 @@ async def wizzard(e):
     invite_link=True,
     )
     await e.edit("`Wizard waves his wand!`")
-    time.sleep(3)
+    time.sleep(1)
     await bot(EditAdminRequest(e.chat_id,(await e.get_reply_message()).sender_id,rights))
-    await e.edit("A perfect magic has happened!")
+    await e.edit("Done.")
 @bot.on(events.NewMessage(outgoing=True,pattern=".thanos"))
 @bot.on(events.MessageEdited(outgoing=True,pattern='.thanos'))
 async def thanos(e):
@@ -40,7 +40,7 @@ async def thanos(e):
             await e.edit("`Ban Error! Couldn\'t ban this user`")
             return
         await e.edit("`Thanos snaps!`")
-        time.sleep(5)
+        time.sleep(1)
         try:
             await bot(EditBannedRequest(e.chat_id,(await e.get_reply_message()).sender_id,rights))
         except UserAdminInvalidError:
@@ -74,8 +74,6 @@ async def spider(e):
         time.sleep(5)
         await e.delete()
         await bot.send_file(e.chat_id,"https://image.ibb.co/mNtVa9/ezgif_2_49b4f89285.gif")
-        if LOGGER:
-            await bot.send_message(LOGGER_GROUP,str((await e.get_reply_message()).sender_id)+" was muted.")
 @bot.on(events.NewMessage(outgoing=True, pattern='.asmon'))
 @bot.on(events.MessageEdited(outgoing=True, pattern='.asmon'))
 async def set_asm(e):
@@ -85,7 +83,6 @@ async def set_asm(e):
             message=e.text
             SPAM_ALLOWANCE=int(message[6:])
             await e.edit("Spam Tracking turned on!")
-            await bot.send_message(LOGGER_GROUP,"Spam Tracking is Turned on!")
 @bot.on(events.NewMessage(incoming=True,pattern="<triggerban>"))
 async def triggered_ban(e):
     message =e.text
@@ -103,13 +100,13 @@ async def triggered_ban(e):
                              embed_links=True
                              )
         if ban_id in BRAIN_CHECKER:
-            await e.edit("`Sorry Master!`")
+            await e.edit("`Sorry!`")
             return
         await e.edit("`Command from my Master!`")
-        time.sleep(5)
+        time.sleep(1)
         await bot(EditBannedRequest(e.chat_id,ban_id,rights))
         await e.delete()
-        await bot.send_message(e.chat_id,"Job was done, Master! Gimme Cookies!")
+        await bot.send_message(e.chat_id,"Done.")
 @bot.on(events.NewMessage(incoming=True,pattern="<triggermute>"))
 async def triggered_mute(e):
     message =e.text
@@ -127,13 +124,13 @@ async def triggered_mute(e):
                              embed_links=True
                              )
         if ban_id in BRAIN_CHECKER:
-            await e.edit("`Sorry Master!`")
+            await e.edit("`Sorry!`")
             return
         await e.edit("`Command from my Master!`")
         time.sleep(5)
         await bot(EditBannedRequest(e.chat_id,(await e.get_reply_message()).sender_id,rights))
         await e.delete()
-        await bot.send_file(e.chat_id,"Job was done, Master! Gimme Cookies!")
+        await bot.send_file(e.chat_id,"Done.")
 @bot.on(events.NewMessage(outgoing=True, pattern='.speak'))
 @bot.on(events.MessageEdited(outgoing=True, pattern='.speak'))
 async def unmute(e):

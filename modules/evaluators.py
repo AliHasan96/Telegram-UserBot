@@ -11,11 +11,11 @@ async def evaluate(e):
           f=open('sender.txt', 'w+')
           f.write(evaluation)
           f.close()
-          await bot.send_file(e.chat_id, 'sender.txt', reply_to=e.id, caption="`It's too big to send as text, sent to hastebin: `" + hastebin.post(evaluation[1:-1]))
+          await bot.send_file(e.chat_id, 'sender.txt', reply_to=e.id, caption="`It's too big to send as a message, sent to hastebin: `" + hastebin.post(evaluation[1:-1]))
           subprocess.run(['rm', 'sender.txt'], stdout=subprocess.PIPE)
       await e.edit("**Query: **\n`"+e.text[6:]+'`\n**Result: **\n`'+str(evaluation)+'`')
     else:
-      await e.edit("**Query: **\n`"+e.text[6:]+'`\n**Result: **\n`No Result Returned/False`')
+      await e.edit("**Query: **\n`"+e.text[6:]+'`\n**Result: **\n`No result returned/false`')
     if LOGGER:
       await bot.send_message(LOGGER_GROUP,"Eval query "+e.text[6:]+" was executed successfully")
 @bot.on(events.NewMessage(outgoing=True, pattern=r'.exec (.*)'))
@@ -31,11 +31,11 @@ async def run(e):
           f=open('sender.txt', 'w+')
           f.write(result)
           f.close()
-          await bot.send_file(e.chat_id, 'sender.txt', reply_to=e.id, caption="`It's too big to send as text, sent to hastebin: `" + hastebin.post(result[1:-1]))
+          await bot.send_file(e.chat_id, 'sender.txt', reply_to=e.id, caption="`It's too big to send as a message, sent to hastebin: `" + hastebin.post(result[1:-1]))
           subprocess.run(['rm', 'sender.txt'], stdout=subprocess.PIPE)
       await e.edit("**Query: **\n`"+e.text[5:]+'`\n**Result: **\n`'+str(result)+'`')
  else:
-  await e.edit("**Query: **\n`"+e.text[5:]+'`\n**Result: **\n`'+'No Result Returned/False'+'`')
+  await e.edit("**Query: **\n`"+e.text[5:]+'`\n**Result: **\n`'+'No result returned/false'+'`')
  if LOGGER:
      await bot.send_message(LOGGER_GROUP,"Exec query "+e.text[5:]+" was executed successfully")
 @bot.on(events.NewMessage(outgoing=True, pattern='.term'))
@@ -50,7 +50,7 @@ async def terminal_runner(e):
         f=open('sender.txt', 'w+')
         f.write(result)
         f.close()
-        await bot.send_file(e.chat_id, 'sender.txt', reply_to=e.id, caption="`It's too big to send as text, sent to hastebin: `" + hastebin.post(result[1:-1]))
+        await bot.send_file(e.chat_id, 'sender.txt', reply_to=e.id, caption="`It's too big to send as a message, sent to hastebin: `" + hastebin.post(result[1:-1]))
         subprocess.run(['rm', 'sender.txt'], stdout=subprocess.PIPE)
     await e.edit("**Query: **\n`"+str(command[6:])+'`\n**Output: **\n`'+result+'`')
     if LOGGER:

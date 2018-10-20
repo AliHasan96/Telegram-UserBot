@@ -12,9 +12,9 @@ async def pipcheck(e):
 @bot.on(events.MessageEdited(outgoing=True,pattern='.paste'))
 async def haste_paste(e):
     message=e.text
-    await e.edit('`Sending to bin . . .`')
+    await e.edit('`Sending to hastebin . . .`')
     text=str(message[7:])
-    await e.edit('`Sent to bin! Check it here: `' + hastebin.post(text))
+    await e.edit('`Sent to hastebin! Check it here: `' + hastebin.post(text))
 @bot.on(events.NewMessage(outgoing=True, pattern='.log'))
 @bot.on(events.MessageEdited(outgoing=True, pattern='.log'))
 async def log(e):
@@ -27,7 +27,7 @@ async def log(e):
         message = str(message[4:])
     if LOGGER:
         await (await e.get_reply_message()).forward_to(LOGGER_GROUP)
-        await e.edit("`Logged Successfully`")
+        await e.edit("`Logged successfully`")
 @bot.on(events.NewMessage(outgoing=True, pattern='.speed'))
 @bot.on(events.MessageEdited(outgoing=True, pattern='.speed'))
 async def speedtest(e):
@@ -93,7 +93,7 @@ async def chatidgetter(e):
 @bot.on(events.MessageEdited(outgoing=True,pattern='.restart'))
 async def restart_the_bot(e):
 	global SIGINT
-	await e.edit("`Thank You master! I am taking a break!`")
+	await e.edit("`Rebootng!`")
 	SIGINT=-1
 	os.killpg(PROCESS_ID,signal.SIGTERM)
 	os.killpg(PROCESS_ID,signal.SIGINT)
@@ -107,22 +107,22 @@ async def pingme(e):
 async def killdabot(e):
         message = e.text
         counter=int(message[10:])
-        await e.reply('`Goodbye *Windows XP shutdown sound*....`')
+        await e.reply('`Dead.`')
         time.sleep(2)
         await bot.send_message(LOGGER_GROUP,"You shutdown the bot for "+str(counter)+" seconds")
         time.sleep(counter)
 @bot.on(events.NewMessage(outgoing=True,pattern='.support'))
 @bot.on(events.MessageEdited(outgoing=True,pattern='.support'))
 async def killdabot(e):
-        await e.edit("Report bugs here: @userbot_support")
+        await e.edit("Report bugs here: @AliHasan96")
 @bot.on(events.NewMessage(outgoing=True,pattern='.helpme'))
 @bot.on(events.MessageEdited(outgoing=True,pattern='.helpme'))
 async def readme(e):
-        await e.edit('https://github.com/baalajimaestro/Telegram-UserBot/blob/master/README.md')
+        await e.edit('https://github.com/AliHasan96/Telegram-UserBot/blob/master/README.md')
 @bot.on(events.NewMessage(outgoing=True,pattern='.repo'))
 @bot.on(events.MessageEdited(outgoing=True,pattern='.repo'))
 async def repo_is_here(e):
-        await e.edit('https://github.com/baalajimaestro/Telegram-UserBot/')
+        await e.edit('https://github.com/AliHasan96/Telegram-UserBot/')
 @bot.on(events.NewMessage(outgoing=True,pattern='.supportchannel'))
 @bot.on(events.MessageEdited(outgoing=True,pattern='.supportchannel'))
 async def support_channel(e):

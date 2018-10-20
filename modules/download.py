@@ -70,4 +70,4 @@ async def _(event):
         ms = (end - start).seconds
         await event.edit("Downloaded to `{}` in {} seconds.".format(required_file_name, ms))
     else:
-        await event.edit("Reply to a message to download to my local server.")
+        await event.edit("Reply to a message to download to my server.")

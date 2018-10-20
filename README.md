@@ -4,19 +4,13 @@ Just coz I'm too lazy, I program it, to make stuff easier.
 This is a userbot, which is equivalent to a telegram client, and it can run on the cloud too.
 It needs a linux pc or any unix to run basic commands, or you need to find the workaround yourself :/
 
-# Contact 
-Join the [news channel](https://t.me/maestro_userbot_channel) if you just want to stay in the loop about new features or
-announcements.
+If you found any bugs or you wanna suggest some features then contact [Me](https://t.me/AliHasan96).
 
-If you found any bugs or you wanna suggest some features then contact [My support group](https://t.me/userbot_support).
-
-Alternatively, [find me on telegram](https://t.me/baalajimaestro)!.
-
--This Readme might go out-of-date at any point, as I push notifications for all updates to my [support channel](https://t.me/maestro_userbot_channel). I recommend subscribing to the channel, for timely updates and fixes.
+-This Readme might go out-of-date at any point.
 
 ### Before you start:
 Get your api-id(API_KEY in my code), API_HASH from my.telegram.org.<br/><br/>
-Create an empty group, add marie, or any of its clone, find group id, then copy it and this is your LOGGER<br/><br/>
+Your ID or group ID is your LOGGER<br/><br/>
 **Please read through this before cloning. I don't want you get stuck anywhere. This guide can get you running up the userbot, if followed properly**
 
 #### Running on heroku:
@@ -37,7 +31,7 @@ Create an empty group, add marie, or any of its clone, find group id, then copy 
 - Deploy.
 
 #### Running on linux:
-- Clone my repo: `git clone https://github.com/baalajimaestro/Telegram-UserBot`
+- Clone my repo: `git clone https://github.com/AliHasan96/Telegram-UserBot`
 
 - Install the necessary dependencies by moving to the project directory and running: `pip3 install -r requirements.txt`
 
