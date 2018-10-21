@@ -12,7 +12,7 @@ async def evaluate(e):
           f.write(evaluation)
           f.close()
           await bot.send_file(e.chat_id, 'output.txt', reply_to=e.id, caption="`It's too big to send as text, output is sent as file`")
-          subprocess.run(['rm', 'sender.txt'], stdout=subprocess.PIPE)
+          subprocess.run(['rm', 'output.txt'], stdout=subprocess.PIPE)
       await e.edit("**Query: **\n`"+e.text[6:]+'`\n**Result: **\n`'+str(evaluation)+'`')
     else:
       await e.edit("**Query: **\n`"+e.text[6:]+'`\n**Result: **\n`No result returned/false`')
