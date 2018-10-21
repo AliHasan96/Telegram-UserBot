@@ -45,10 +45,10 @@ async def not_afk(e):
         global AFKREASON
         ISAFK=False
         await e.edit("Returned.")
-        await e.respond("`You had recieved "+str(COUNT_MSG)+" messages while you were away. Check log for more details.`")
-        await bot.send_message(LOGGER_GROUP,"You had recieved "+str(COUNT_MSG)+" messages from "+str(len(USERS))+" chats while you were away")
-            for i in USERS:
-                await bot.send_message(LOGGER_GROUP,str(i)+" sent you "+"`"+str(USERS[i])+" messages`")
+        await e.respond("`You recieved "+str(COUNT_MSG)+" messages while you were away. Check log for more details.`")
+        await bot.send_message(LOGGER_GROUP,"You recieved "+str(COUNT_MSG)+" messages from "+str(len(USERS))+" chats while you were away")
+        for i in USERS:
+              await bot.send_message(LOGGER_GROUP,str(i)+" sent you "+"`"+str(USERS[i])+" messages`")
         COUNT_MSG=0
         USERS={}
         AFKREASON="No reason"
