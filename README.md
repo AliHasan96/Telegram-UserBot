@@ -1,3 +1,6 @@
+```diff
+- This repository is not updated anymore, head over to https://github.com/baalajimaestro/Telegram-UserBot for updated code.
+```
 # Telegram-UserBot 
 
 Just coz I'm too lazy, I program it, to make stuff easier.
